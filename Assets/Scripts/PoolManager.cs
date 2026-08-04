@@ -28,7 +28,7 @@ public class PoolManager : MonoBehaviour
         else
         {
             RegisterPrefab(prefab);
-            return pools[prefab].InstantiateObject(position);
+            return pools[prefab].InstantiateObject(position, isTurnedOff);
         }
     }
 }
