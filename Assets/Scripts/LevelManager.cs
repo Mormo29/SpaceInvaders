@@ -5,9 +5,11 @@ public class LevelManager : ScriptableObject
 {
     private int levelIndex = 0;
     public LevelData[] levels;
-    public void SetLevelIndex(int index)
+    public int LevelIndex => levelIndex;
+    public bool IsPastLastLevel => LevelIndex >= levels.Length - 1;
+    public void NextLevel()
     {
-        levelIndex = index;
+        levelIndex++;
     }
     public LevelData GetCurrentLevelData()
     {

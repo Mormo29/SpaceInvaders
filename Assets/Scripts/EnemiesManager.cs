@@ -26,8 +26,8 @@ public class EnemiesManager : MonoBehaviour
    {
        yield return new WaitForSeconds(enemyData.spawnTime);
        Enemy enemy = PoolManager.Instance.GetObject(enemyData.enemyPrefab.gameObject, 
-       vector3.zero, true).GetComponent<Enemy>();
-       enemy.Ondeath.AddListener(HandleEnemyDeath);
+       Vector3.zero, true).GetComponent<Enemy>();
+       enemy.OnDeath.AddListener(HandleEnemyDeath);
        enemy.Target = target;
        enemy.PositionEnemy();
    }

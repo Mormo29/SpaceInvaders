@@ -9,18 +9,18 @@ public class Asteroid : Enemy
     [SerializeField]
     private float damage = 20f;
     [SerializeField]
-    private void distanceToTarget = 30f;
+    private float distanceToTarget = 30f;
     public override void OnEnable()
     {
         base.OnEnable();
         rotateScript.enabled = true;
         animator.Play("Idle", 0, 0f);
-        SoundManager.instance.Play("asteroid_appear");
     } 
     private void Update()
     {
         if (currentState == State.Active && target != null)
         {
+            transform.LookAt(target);
             Vector3 direction = (target.position - transform.position).normalized;
             transform.position += direction * speed * Time.deltaTime;
         }
@@ -32,7 +32,7 @@ public class Asteroid : Enemy
         base.Destroy();
     
     }
-    private void OnTrriger(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (currentState == State.Active && other.CompareTag("Player"))
         {
@@ -46,7 +46,8 @@ public class Asteroid : Enemy
     {
         Vector3 direction = Random.onUnitSphere;
         float distance = Random.Range(distanceToTarget, distanceToTarget + 5f);
-        transform.position = target.position + direction + distance;
+        transform.position = target.position + direction * distance;
         gameObject.SetActive(true);
     }
+
 }
