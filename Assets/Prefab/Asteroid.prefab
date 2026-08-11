@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Health
   healthSlider: {fileID: 7322968971778686166}
-  maxHealth: 0
+  maxHealth: 100
   onReceiveDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -158,9 +158,9 @@ MonoBehaviour:
   destroyAnimationName: Destroy
   destroySoundName: asteroid_explode
   appearSoundName: asteroid_appear
-  rotateScript: {fileID: 4943651469452839816}
   speed: 10
   damage: 20
+  rotateScript: {fileID: 4943651469452839816}
   distanceToTarget: 50
 --- !u!95 &2988255280994885775
 Animator:

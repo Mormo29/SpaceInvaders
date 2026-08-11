@@ -17,6 +17,10 @@ public class Enemy : MonoBehaviour
     protected string destroySoundName = "asteroid_explode";
     [SerializeField]
     protected string appearSoundName;
+    [SerializeField]
+    protected float speed = 1f;
+    [SerializeField]
+    protected float damage = 20f;
     public Transform Target { set { target = value; } }
     protected enum State {Active, Dead}
     protected State currentState;
@@ -28,6 +32,8 @@ public class Enemy : MonoBehaviour
     }
     public virtual void OnEnable()
     {
+        animator.Play("Idle, 0, 0f");
+        objectCollider.enabled = true;
         SoundManager.instance.Play(appearSoundName);
         health.InitializeHealth();
         currentState = State.Active;
