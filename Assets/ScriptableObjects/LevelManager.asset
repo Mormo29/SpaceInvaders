@@ -29,3 +29,7 @@ MonoBehaviour:
       spawnTime: 5
     - enemyPrefab: {fileID: 8556744882439560620, guid: fec7740301b5808428eec83c3ed20706, type: 3}
       spawnTime: 8
+    - enemyPrefab: {fileID: 8598419274534625815, guid: 9a4dffbde73f9de4c8b1547cd73022eb, type: 3}
+      spawnTime: 8
+    - enemyPrefab: {fileID: 8556744882439560620, guid: fec7740301b5808428eec83c3ed20706, type: 3}
+      spawnTime: 5

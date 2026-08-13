@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
     }
     public virtual void OnEnable()
     {
-        animator.Play("Idle, 0, 0f");
+        animator.Play("Idle", 0, 0f);
         objectCollider.enabled = true;
         SoundManager.instance.Play(appearSoundName);
         health.InitializeHealth();

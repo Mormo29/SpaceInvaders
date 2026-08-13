@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
-
+ 
 public class WinScreen : MonoBehaviour
 {
-    
     [SerializeField]
     private UnityEvent onShowWinScreen;
+    [SerializeField]
+    private UnityEvent onShowLoseScreen;
     [SerializeField]
     private TextMesh[] textMeshes;
     [SerializeField]
@@ -16,15 +17,15 @@ public class WinScreen : MonoBehaviour
     private LevelManager levelManager;
     [SerializeField]
     private GameObject[] screenAssets;
-    private bool IsWinScreenShown = false;
-    private void Awake()
+    private bool isWinScreenShown = false;
+    private void Awake ()
     {
         ShowScreenAssets(false);
     }
     public void ShowWinScreen()
     {
-        if (IsWinScreenShown) return;
-        IsWinScreenShown = true;
+        if (isWinScreenShown) return;
+        isWinScreenShown = true;
         ShowScreenAssets(true);
         onShowWinScreen?.Invoke();
         ChangeTextMeshes("You\nWin!");
@@ -34,12 +35,12 @@ public class WinScreen : MonoBehaviour
     }
     public void ShowLoseScreen()
     {
-        if (IsWinScreenShown) return;
-        IsWinScreenShown = true;
+        if (isWinScreenShown) return;
+        isWinScreenShown = false;
         ShowScreenAssets(true);
-        onShowWinScreen?.Invoke();
+        onShowLoseScreen?.Invoke();
         ChangeTextMeshes("You\nLose!");
-        nextLevelButton.SetActive(true);
+        nextLevelButton.SetActive(false);
         quitButton.SetActive(true);
     }
     private void ChangeTextMeshes(string text)
